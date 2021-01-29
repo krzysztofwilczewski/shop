@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org", lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.productName}">Kołpaki</title>
+</head>
+<body>
+
+<div>
+    <div>
+        <img src="../static/img/pizza-margherita.jpg" th:src="@{${product.imageUrl}}"  alt="Pizza margherita" />
+        <div>
+            <h1 class="text-center" th:text="${product.productName}">Pizza Margherita</h1>
+            <h3 class="text-center" th:text="|Cena ${product.productPrice}zł|">Cena: 25zł</h3>
+            <p class="text-justify" th:text="${product.productLongDescription}">Pizza Margherita to klasyka włoskiej kuchni.
+                W naszym wydaniu serwujemy pizzę na cienkim cieście z ręcznie przygotowanym sosem pomidorowym
+                i oryginalnym serem mozarella</p>
+        </div>
+    </div>
+</div>
+</body>
+</body>
+</html>

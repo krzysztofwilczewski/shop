@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parts Shoop</title>
+</head>
+<body>
+<div>
+    <div>
+        <div>
+            <h1>KAZAuto</h1>
+            <p>Witaj w naszym sklepie z częściami samochodowymi. Zapraszamy do zakupów.</p>
+        </div>
+    </div>
+    <a href="addproduct">Dodaj nowy produkt</a>
+    <div>
+        <div th:each="product: ${products}">
+            <div>
+                <a href="#" th:href="@{|/produkt/${product.productName}|}">
+                    <h2 th:text="|${product.productName}(${product.productPrice}zł)|">Pizza Margherita (25zł)</h2>
+                </a>
+                <h4 th:text="${product.productCategory}">zawieszenie</h4>
+                <h5 th:text="${product.productDescription}">Krótki opis pizzy margherita, pysznej klasyki na cienkim cieście i rozpływającym się serem.</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
