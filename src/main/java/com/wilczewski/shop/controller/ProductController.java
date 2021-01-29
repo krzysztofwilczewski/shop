@@ -47,7 +47,7 @@ public class ProductController {
     @PostMapping("/save")
     public String processUpload(@RequestParam("file") MultipartFile file, Product product) throws IllegalStateException, IOException {
 
-        String baseDir = "C:\\Users\\tworn\\IdeaProjects\\shop\\src\\main\\resources\\static\\images\\";
+        String baseDir = "C:\\uploads\\";
         file.transferTo(new File(baseDir + file.getOriginalFilename()));
         product.setImageUrl(baseDir + file.getOriginalFilename());
 
