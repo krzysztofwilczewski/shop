@@ -28,7 +28,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("addproduct")
+    @GetMapping("/addproduct")
     public String addProduct(Model model){
         model.addAttribute("product", new Product());
         return "addproduct";

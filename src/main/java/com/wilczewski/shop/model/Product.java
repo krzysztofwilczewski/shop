@@ -1,10 +1,8 @@
 package com.wilczewski.shop.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -18,19 +16,22 @@ public class Product {
 
     private String productDescription;
 
-    private BigDecimal productPrice;
+    private Double productPrice;
 
     private String productLongDescription;
 
+    private Integer productStock;
+
     private String imageUrl;
 
+    @OneToMany(mappedBy = "product")
+    private List<CartItem> cartItems;
 
 
 
 
 
-    public Product() {
-    }
+
 
 
 
@@ -74,11 +75,9 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public BigDecimal getProductPrice() {
-        return productPrice;
-    }
+    public Double getProductPrice() { return productPrice; }
 
-    public void setProductPrice(BigDecimal productPrice) {
+    public void setProductPrice(Double productPrice) {
         this.productPrice = productPrice;
     }
 
@@ -88,5 +87,21 @@ public class Product {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Integer getProductStock() {
+        return productStock;
+    }
+
+    public void setProductStock(Integer productStock) {
+        this.productStock = productStock;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 }
