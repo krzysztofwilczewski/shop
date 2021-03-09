@@ -9,6 +9,7 @@ import com.wilczewski.shop.service.CartService;
 import com.wilczewski.shop.service.ProductService;
 import com.wilczewski.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,7 @@ public class CartItemController {
     }
 
     @GetMapping("/add/{productId}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addProductToCart(@PathVariable Long productId,@AuthenticationPrincipal User active){
 
 

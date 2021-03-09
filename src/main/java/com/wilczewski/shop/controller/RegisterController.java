@@ -24,11 +24,11 @@ public class RegisterController {
         model.addAttribute("userCreate",new User());
         return "register";
     }
-  //  @PostMapping("/register")
-  //  public String registration(@ModelAttribute User userCreate){
-  //      userService.saveUser(userCreate);
+    @PostMapping("/register")
+    public String registration(@ModelAttribute User userCreate){
+        userService.saveUser(userCreate);
 
-  //      return "redirect:/";
-  //  }
+        return "redirect:/";
+    }
 
 }

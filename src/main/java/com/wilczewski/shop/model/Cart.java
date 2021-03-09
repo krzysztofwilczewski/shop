@@ -9,7 +9,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "cart")
     private User user;
 
     @OneToOne(mappedBy = "cart")

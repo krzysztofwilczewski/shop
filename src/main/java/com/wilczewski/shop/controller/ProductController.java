@@ -1,6 +1,7 @@
 package com.wilczewski.shop.controller;
 
 import com.wilczewski.shop.model.Product;
+import com.wilczewski.shop.repository.ProductRepository;
 import com.wilczewski.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

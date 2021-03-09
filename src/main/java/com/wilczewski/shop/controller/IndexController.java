@@ -1,6 +1,6 @@
 package com.wilczewski.shop.controller;
 
-
+import com.wilczewski.shop.model.Product;
 import com.wilczewski.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,4 +27,10 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String login(Model model, String error){
+        if (error != null)
+            model.addAttribute("error","login or password invalid");
+        return "login";
+}
 }

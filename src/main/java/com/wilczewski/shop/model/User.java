@@ -15,7 +15,7 @@ public class User {
     private String emailAddress;
 
     @OneToOne
-    @JoinColumn(name = "id_cart")
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
     @OneToOne(mappedBy = "user")
