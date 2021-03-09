@@ -1,7 +1,7 @@
 package com.wilczewski.shop.controller;
 
 import com.wilczewski.shop.model.Product;
-import com.wilczewski.shop.repository.ProductRepository;
+import com.wilczewski.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,22 +17,17 @@ import java.io.IOException;
 @Controller
 public class ProductController {
 
-    private ProductRepository productRepository;
-
-
+    private ProductService productService;
 
     @Autowired
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
-
-
 
     @GetMapping("/produkt/{productName}")
     public String getProduct(@PathVariable String productName, Model model )
     {
-
-        Product product = productRepository.findByProductName(productName);
+        Product product = productService.findByProductName(productName);
 
         model.addAttribute("product", product);
 
@@ -42,16 +37,20 @@ public class ProductController {
     }
 
 
-
+    @GetMapping("/addproduct")
+    public String addProduct(Model model){
+        model.addAttribute("product", new Product());
+        return "addproduct";
+    }
 
     @PostMapping("/save")
-    public String processUpload(@RequestParam("file") MultipartFile file, Product product) throws IllegalStateException, IOException {
+    public String addProduct(@RequestParam("file") MultipartFile file, Product product) throws IllegalStateException, IOException {
 
         String baseDir = "C:\\Users\\tworn\\IdeaProjects\\shop\\src\\main\\resources\\static\\images\\";
         file.transferTo(new File(baseDir + file.getOriginalFilename()));
         product.setImageUrl("/images/" + file.getOriginalFilename());
 
-        productRepository.save(product);
+        productService.save(product);
 
         return "redirect:/";
     }

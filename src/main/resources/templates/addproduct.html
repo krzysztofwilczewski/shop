@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Dodaj nowy produkt</title>
+    <link  th:href="@{/css/css.css}" rel="stylesheet">
 </head>
 <body>
+<div th:replace="header"></div>
 <form  method="post" enctype="multipart/form-data" th:action="@{/save}" th:object="${product}">
     <p>Kategoria: <input type="text" th:field="*{productCategory}" /></p>
     <p>Nazwa: <input type="text" th:field="*{productName}" /></p>

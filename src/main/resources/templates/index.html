@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Parts Shoop</title>
-</head>
+    <link  th:href="@{/css/css.css}" rel="stylesheet">
+</head >
 <body>
+<div th:replace="header"></div>
 <div>
     <div>
         <div>
@@ -13,7 +15,7 @@
             <p>Witaj w naszym sklepie z częściami samochodowymi. Zapraszamy do zakupów.</p>
         </div>
     </div>
-    <a href="addproduct">Dodaj nowy produkt</a>
+    <a th:href="@{/addproduct}">Dodaj nowy produkt</a>
     <div>
         <div th:each="product: ${products}">
             <div>
@@ -22,6 +24,7 @@
                 </a>
                 <h4 th:text="${product.productCategory}">zawieszenie</h4>
                 <h5 th:text="${product.productDescription}">Krótki opis .</h5>
+                <a href="#" th:href="${'/cart/add/' +product.productId}" >Do Koszyka</a>
             </div>
         </div>
     </div>

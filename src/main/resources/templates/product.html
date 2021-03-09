@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org", lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title th:text="${product.productName}">Kołpaki</title>
+    <link  th:href="@{/css/css.css}" rel="stylesheet">
 </head>
 <body>
-
+<div th:replace="header"></div>
 <div>
     <div>
         <img  th:src="@{${product.imageUrl}}"  alt="picture" />
@@ -18,6 +20,5 @@
         </div>
     </div>
 </div>
-</body>
 </body>
 </html>

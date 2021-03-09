@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  type="text/css" href="css/css.css" />
+
+</head>
+<body>
+<div th:fragment="header" class="rounded">
+    <nav>
+        <a href="/">WILQ</a>
+    <form>
+        <input type="search" title="wyszukaj">
+        <input type="submit" value="Search">
+    </form>
+        <a th:href="@{/register}">REJESTRACJA</a>
+        <a th:href="@{/login}" >ZALOGUJ</a>
+        <a th:href="@{/logout}" >WYLOGUJ</a>
+        <a th:href="@{/cart}">KOSZYK</a>
+        <span sec:authentication="name">Bob</span>
+
+    </nav>
+</div>
+
+
+</body>
+</html>
